@@ -1,1 +1,23 @@
-
+name: APK Oluştur
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Flet kur
+        run: pip install "flet[all]==0.28.3"
+      - name: APK oluştur
+        run: flet build apk --yes --verbose
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pdf-duzenleyici-apk
+          path: build/apk/*.apk
