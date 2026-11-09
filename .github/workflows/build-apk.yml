@@ -13,10 +13,14 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.29.2"
+          channel: stable
       - name: Flet kur
         run: pip install "flet[all]==0.28.3"
       - name: APK oluştur
-        run: flet build apk --yes --verbose
+        run: flet build apk -v
       - uses: actions/upload-artifact@v4
         with:
           name: pdf-duzenleyici-apk
