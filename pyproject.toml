@@ -1,0 +1,25 @@
+[project]
+name = "pdf-duzenleyici"
+version = "1.0.0"
+description = "PDF Düzenleyici - birleştir, ayır, sıkıştır, dönüştür"
+requires-python = ">=3.10"
+dependencies = [
+  "flet==0.28.3",
+  "pypdf",
+  "reportlab",
+  "pillow",
+  "pymupdf",
+  "cryptography",
+]
+
+[tool.flet]
+org = "com.berkansarisoy"
+product = "PDF Düzenleyici"
+company = "Berkan Sarısoy"
+
+[tool.flet.app]
+path = "src"
+
+[tool.flet.android.permission]
+"android.permission.READ_EXTERNAL_STORAGE" = true
+"android.permission.WRITE_EXTERNAL_STORAGE" = true
